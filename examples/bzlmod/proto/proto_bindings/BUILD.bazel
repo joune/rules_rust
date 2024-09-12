@@ -8,6 +8,10 @@ proto_library(
     srcs = [
         "proto/helloworld.proto",
     ],
+    deps = [
+        "@com_google_protobuf//:wrappers_proto",
+    ],
+
 )
 
 # Generate Rust bindings from the generated proto files

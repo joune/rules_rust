@@ -17,6 +17,8 @@ syntax = "proto3";
 // https://github.com/hyperium/tonic/blob/master/examples/proto/helloworld/helloworld.proto
 package proto;
 
+import "google/protobuf/wrappers.proto";
+
 // The greeting service definition.
 service Greeter {
     // Sends a greeting
@@ -26,6 +28,7 @@ service Greeter {
 // The request message containing the user's name.
 message HelloRequest {
     string name = 1;
+    google.protobuf.BoolValue b = 2;
 }
 
 // The response message containing the greetings
