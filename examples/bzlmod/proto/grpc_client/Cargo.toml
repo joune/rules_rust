@@ -15,5 +15,6 @@ path = "src/main.rs"
 # Internal crates
 proto_bindings = { workspace = true }
 # External crates
+prost-types = { workspace = true, default-features = false }
 tokio = { workspace = true }
 tonic = { workspace = true }

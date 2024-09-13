@@ -13,9 +13,12 @@ path = "src/lib.rs"
 
 
 [dependencies]
+prost-wkt = { workspace = true }
+prost-wkt-types = { workspace = true }
 tonic = { workspace = true }
 prost = { workspace = true }
 
 
 [build-dependencies]
+prost-build = { workspace = true }
 tonic-build = { workspace = true }

@@ -83,21 +83,21 @@ crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")
 # protobuf / gRPC dependencies
 crate.spec(
     package = "prost",
-    version = "0.13.1",
+    version = "0.13.2",
 )
 crate.spec(
     default_features = False,
     package = "prost-types",
-    version = "0.13.1",
+    version = "0.13.2",
 )
 crate.spec(
     features = ["transport"],
     package = "tonic",
-    version = "0.12.1",
+    version = "0.12.2",
 )
 crate.spec(
     package = "tonic-build",
-    version = "0.12.1",
+    version = "0.10.2",
 )
 crate.spec(
     package = "protoc-gen-prost",
