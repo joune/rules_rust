@@ -10,7 +10,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let request = tonic::Request::new(HelloRequest {
         name: "Hello gRPC".into(),
-        b: Some(true.into()),
+        t: Some(std::time::SystemTime::now().into()),
     });
 
     let response = client
