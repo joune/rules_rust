@@ -737,7 +737,27 @@ fn main() {
     if is_tonic {
         cmd.arg(format!("--tonic_out={}", out_dir.display()));
     }
-    cmd.args(extra_args);
+
+    // cmd.args(dbg!(extra_args));
+
+    let xtr = extra_args.into_iter().map(|x| 
+        x.replace(
+            ".google.protobuf.Any=::any_proto::google::protobuf::Any", 
+            ".google.protobuf.Any=::prost_wkt_types::Any"
+        ).replace(
+            ".google.protobuf.Value=::value_proto::google::protobuf::Value", 
+            ".google.protobuf.Value=::prost_wkt_types::Value"
+        ).replace(
+            ".google.protobuf.Duration=::duration_proto::google::protobuf::Duration", 
+            ".google.protobuf.Duration=::prost_wkt_types::Duration"
+        ).replace(
+            ".google.protobuf.Timestamp=::timestamp_proto::google::protobuf::Timestamp", 
+            ".google.protobuf.Timestamp=::prost_wkt_types::Timestamp"
+        )
+        .to_string()
+    ).collect::<Vec<String>>();
+    cmd.args(dbg!(xtr));
+
     cmd.args(
         proto_paths
             .iter()
@@ -745,6 +765,8 @@ fn main() {
     );
     cmd.args(includes.iter().map(|include| format!("-I{}", include)));
     cmd.args(&proto_files);
+
+    dbg!(&cmd);
 
     let status = cmd.status().expect("Failed to spawn protoc process");
     if !status.success() {

@@ -90,6 +90,7 @@ crate.spec(
     package = "prost-types",
     version = "0.13.2",
 )
+crate.spec(package = "prost-wkt-types", version = "0.6.0")
 crate.spec(
     features = ["transport"],
     package = "tonic",
