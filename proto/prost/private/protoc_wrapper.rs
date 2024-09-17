@@ -746,7 +746,13 @@ fn main() {
             ".google.protobuf.Any=::prost_wkt_types::Any"
         ).replace(
             ".google.protobuf.Value=::value_proto::google::protobuf::Value", 
-            ".google.protobuf.Value=::prost_wkt_types::Value"
+            ".google.protobuf.Value=::prost_types::Value"
+        ).replace(
+            ".google.protobuf.StringValue=::wrappers_proto::google::protobuf::StringValue",
+            ".google.protobuf.StringValue=::prost::alloc::string::String",
+        ).replace(
+            ".google.protobuf.BoolValue=::wrappers_proto::google::protobuf::BoolValue",
+            ".google.protobuf.BoolValue=bool",
         ).replace(
             ".google.protobuf.Duration=::duration_proto::google::protobuf::Duration", 
             ".google.protobuf.Duration=::prost_wkt_types::Duration"
